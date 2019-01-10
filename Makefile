@@ -33,7 +33,21 @@ FILES		= ft_memset.c \
 				ft_strrchr.c \
 				ft_strstr.c \
 				ft_strnstr.c \
-				#ft_memalloc.c \
+				ft_memalloc.c \
+				ft_memdel.c \
+				ft_strnew.c \
+				ft_strdel.c \
+				ft_strclr.c \
+				ft_striter.c \
+				ft_striteri.c \
+				ft_strmap.c \
+				ft_strmapi.c \
+				#ft_strnequ.c \
+				#ft_strsub.c \
+				#ft_strjoin.c \
+				#ft_strtrim \
+				#ft_strsplit \
+
 				
 OBJ			= $(FILES:%.c=%.o)
 
