@@ -42,11 +42,23 @@ FILES		= ft_memset.c \
 				ft_striteri.c \
 				ft_strmap.c \
 				ft_strmapi.c \
-				#ft_strnequ.c \
-				#ft_strsub.c \
-				#ft_strjoin.c \
-				#ft_strtrim \
-				#ft_strsplit \
+				ft_strequ.c \
+				ft_strnequ.c \
+				ft_strsub.c \
+				ft_strjoin.c \
+				ft_strtrim.c \
+				ft_strsplit.c \
+				ft_count_words.c \
+				ft_itoa.c \
+				ft_intlen.c \
+				ft_putchar.c \
+				ft_putchar_fd.c \
+				ft_putstr.c \
+				ft_putstr_fd.c \
+				ft_putendl_fd.c \
+				ft_putendl.c \
+				ft_putnbr_fd.c \
+				ft_putnbr.c \
 
 				
 OBJ			= $(FILES:%.c=%.o)
@@ -67,6 +79,4 @@ fclean: clean
 
 re: fclean all
 
-# I use .PHONY to make sure that gnu make will still run even if files called
-# clean / fclean / all and re already exist in the directory
 .PHONY: clean fclean all re

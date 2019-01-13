@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 01:45:57 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/08 01:46:04 by nbethany         ###   ########.fr       */
+/*   Created: 2019/01/13 21:29:56 by nbethany          #+#    #+#             */
+/*   Updated: 2019/01/13 21:31:36 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+char *ft_strtrim(char const *s)
 {
-    size_t    i;
+    size_t i;
+    size_t len;
     
     i = 0;
-    while (s1[i] && s1[i] == s2[i])
+    if (!s)
+        return (NULL);
+    while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
         i++;
-    return ((const unsigned char)s1[i] - (const unsigned char)s2[i]);
+    if (s[i] == '\0')
+        return (ft_strdup(s + i));
+    len = ft_strlen(s) - 1;
+    
+    while ((s[len] == ' ' || s[len] == '\n' || s[len] == '\t') && len > 0)
+        len--;
+    return (ft_strsub(s, i, len - i + 1));
+    
 }

@@ -12,8 +12,10 @@
 
 #ifndef LIBFT_H
 #define LIBFT_H
+#define ABS(a) (a) < 0 ? -(a): (a)
 #include <strings.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s_list
 {
@@ -83,5 +85,7 @@ t_list *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int ft_islower(int c);
 int ft_isupper(int c);
 int ft_isspace(int c);
+size_t ft_count_words(char const *s, char c);
+int ft_intlen(int num);
 
 #endif

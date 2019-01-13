@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 01:45:57 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/08 01:46:04 by nbethany         ###   ########.fr       */
+/*   Created: 2019/01/13 22:17:35 by nbethany          #+#    #+#             */
+/*   Updated: 2019/01/13 22:18:47 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+size_t ft_count_words(char const *s, char c)
 {
-    size_t    i;
+    size_t i;
+    size_t count;
     
     i = 0;
-    while (s1[i] && s1[i] == s2[i])
-        i++;
-    return ((const unsigned char)s1[i] - (const unsigned char)s2[i]);
+    count = 0;
+    while (s[i])
+    {
+        while (s[i] == c)
+            i++;
+        if (s[i] != c && s[i])
+            count++;
+        while (s[i] != c && s[i])
+            i++;
+    }
+    
+    return (count);
 }

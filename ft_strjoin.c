@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 01:45:57 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/08 01:46:04 by nbethany         ###   ########.fr       */
+/*   Created: 2019/01/13 21:04:59 by nbethany          #+#    #+#             */
+/*   Updated: 2019/01/13 21:05:16 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-    size_t    i;
+    char *snew;
+    size_t len;
     
-    i = 0;
-    while (s1[i] && s1[i] == s2[i])
-        i++;
-    return ((const unsigned char)s1[i] - (const unsigned char)s2[i]);
+    len = ft_strlen(s1) + ft_strlen(s2);
+    snew = (char *) malloc (sizeof(*snew) * (len + 1));
+    
+    if (!snew || !s1 || !s2)
+        return (NULL);
+    
+    ft_strcpy(snew,s1);
+    ft_strcat(snew,s2);
+    return (snew);
+
 }
