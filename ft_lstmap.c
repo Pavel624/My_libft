@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 04:38:30 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/15 18:45:45 by nbethany         ###   ########.fr       */
+/*   Created: 2019/01/15 14:22:08 by nbethany          #+#    #+#             */
+/*   Updated: 2019/01/15 18:07:04 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memmove(void *dst, const void *src, size_t len)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t			i;
-	unsigned char	*dstcpy;
-	unsigned char	*srccpy;
+	t_list	*tmp;
+	t_list	*head;
 
-	dstcpy = (unsigned char *)dst;
-	srccpy = (unsigned char *)src;
-	if (srccpy > dstcpy)
-		ft_memcpy(dstcpy, srccpy, len);
-	else if (dstcpy > srccpy)
+	if (!lst)
+		return (NULL);
+	head = f(lst);
+	tmp = head;
+	while (lst->next)
 	{
-		i = len;
-		while (i)
-		{
-			dstcpy[i - 1] = srccpy[i - 1];
-			i--;
-		}
+		lst = lst->next;
+		tmp->next = (*f)(lst);
+		if (!(tmp->next))
+			return (NULL);
+		tmp = tmp->next;
 	}
-	return (dstcpy);
+	return (head);
 }

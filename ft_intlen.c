@@ -6,16 +6,16 @@
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/13 22:45:38 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/13 22:48:35 by nbethany         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:49:11 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_intlen(int num)
+int	ft_intlen(int num)
 {
-	int len;
-	
+	int	len;
+
 	len = (num <= 0 ? 1 : 0);
 	while (num)
 	{

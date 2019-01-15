@@ -6,31 +6,31 @@
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 20:09:08 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/10 20:09:32 by nbethany         ###   ########.fr       */
+/*   Updated: 2019/01/15 19:57:51 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char		*ft_strnstr(const char *hstck, const char *ndl, size_t len)
 {
-    size_t i;
-    size_t j;
-    
-    if (!needle[0])
-        return ((char *)haystack);
-    i = 0;
-    while (haystack[i] && i < len)
-    {
-        if (haystack[i] == needle[0])
-        {
-            j = 1;
-            while (needle[j] && haystack[j + i] == needle[j] && (i + j < len))
-                j++;
-            if (needle[j] == '\0')
-                return ((char *) &haystack[i]);
-        }
-        i++;
-    }
-    return NULL;
+	size_t	i;
+	size_t	j;
+
+	if (!ndl[0])
+		return ((char *)hstck);
+	i = 0;
+	while (hstck[i] && i < len)
+	{
+		if (hstck[i] == ndl[0])
+		{
+			j = 1;
+			while (ndl[j] && hstck[j + i] == ndl[j] && (i + j < len))
+				j++;
+			if (ndl[j] == '\0')
+				return ((char *)&hstck[i]);
+		}
+		i++;
+	}
+	return (NULL);
 }

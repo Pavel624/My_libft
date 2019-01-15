@@ -6,13 +6,13 @@
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 03:07:14 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/08 03:08:52 by nbethany         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:52:39 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_islower(int c)
+int	ft_islower(int c)
 {
-	return (c>=97 && c<=122 ? 1 : 0);
+	return (c >= 97 && c <= 122 ? 1 : 0);
 }

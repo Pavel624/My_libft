@@ -6,43 +6,48 @@
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/13 21:43:22 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/13 21:43:43 by nbethany         ###   ########.fr       */
+/*   Updated: 2019/01/15 20:38:44 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char **ft_strsplit(char const *s, char c)
+static char	*ft_get_next_word(char const *s, char c, size_t *start)
 {
-    char **split;
-    size_t i;
-    size_t j;
-    size_t len;
-    
-    len = ft_count_words(s,c);
-    split = (char **) ft_memalloc(sizeof(*split) * (ft_count_words(s,c) + 1));
-    
-    if (!s || !c || !split)
-        return (NULL);
-    
-    i = 0;
-    j = 0;
-    
-    while (s[i])
-    {
-         if (s[i] == c)
-            i++;
-         else
-         {
-            len = 0;
-            while (s[i + len] && (s[i + len] != c))
-                len++;
-            split[j] = ft_strsub(s, i, len);
-             j++;
-            i = i + len;
-         }
-    }
-    split[j] = 0;
-    
-    return (split);
+	size_t i;
+
+	while (s[*start] == c)
+		(*start)++;
+	i = *start;
+	while (s[*start])
+	{
+		if (s[*start] == c)
+			break ;
+		(*start)++;
+	}
+	return (ft_strsub(s, i, *start - i));
+}
+
+char		**ft_strsplit(char const *s, char c)
+{
+	char	**split;
+	size_t	i;
+	size_t	j;
+	size_t	len;
+
+	if (!s || !c)
+		return (NULL);
+	len = ft_count_words(s, c);
+	split = (char **)ft_memalloc(sizeof(*split) * (len + 1));
+	if (!split)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (len--)
+	{
+		split[i] = ft_get_next_word(s, c, &j);
+		i++;
+	}
+	split[j] = 0;
+	return (split);
 }

@@ -6,17 +6,17 @@
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:54:12 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/10 23:00:06 by nbethany         ###   ########.fr       */
+/*   Updated: 2019/01/15 18:26:15 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_strclr(char *s)
+void	ft_strclr(char *s)
 {
-    if (s)
-    {
-        while (*s)
-            *s++ = '\0';
-    }
+	if (s)
+	{
+		while (*s)
+			*s++ = '\0';
+	}
 }

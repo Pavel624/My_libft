@@ -6,13 +6,13 @@
 /*   By: nbethany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/13 23:36:13 by nbethany          #+#    #+#             */
-/*   Updated: 2019/01/13 23:37:01 by nbethany         ###   ########.fr       */
+/*   Updated: 2019/01/15 18:27:12 by nbethany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl(char const *s)
+void	ft_putendl(char const *s)
 {
-	ft_putendl_fd(s,1);
+	ft_putendl_fd(s, 1);
 }
